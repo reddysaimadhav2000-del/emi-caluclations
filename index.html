@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EMI Calculator</title>
+</head>
+<body>
+
+<h2>EMI Calculator</h2>
+
+<form method="post">
+    <label>Loan Amount</label><br>
+    <input type="number" name="loan_amount" step="any" required><br><br>
+
+    <label>Interest Rate (%)</label><br>
+    <input type="number" name="interest_rate" step="any" required><br><br>
+
+    <label>Tenure (Years)</label><br>
+    <input type="number" name="tenure" required><br><br>
+
+    <button type="submit">Calculate</button>
+</form>
+
+{% if emi %}
+    <h3>Monthly EMI: {{ "%.2f"|format(emi) }}</h3>
+{% endif %}
+
+{% if table %}
+    <h3>Amortization Table</h3>
+    {{ table | safe }}
+{% endif %}
+
+</body>
+</html>
